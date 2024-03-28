@@ -6,7 +6,6 @@ import Recipe from './recipe/Recipe';
 import Create from './create/Create';
 import Search from './search/Search';
 import Navbar from './components/Navbar';
-
 function App() {
   return (
     <div className="App">
