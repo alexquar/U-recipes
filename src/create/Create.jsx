@@ -1,12 +1,25 @@
 import './Create.css'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 export default function Create() {
     const [title, setTitle] = useState('')
     const [method, setMethod] = useState('')
     const [cookingTime, setCookingTime] = useState('')
+    const [newIngredient, setNewIngredient] = useState('')
+    const [ingredients, setIngredients] = useState([])
+    const ingredientInput = useRef(null)
 
     const handleSubmit =(e)=>{
         e.preventDefault()
+    }
+
+    const handleAdd = (e) =>{
+        e.preventDefault()
+        const ing = newIngredient.trim()
+        if(ing && !ingredients.includes(ing)){
+        setIngredients(prevIngredients => [...prevIngredients, ing])
+    }
+        setNewIngredient('')
+        ingredientInput.current.focus()
     }
   return (
     <div className="create">
@@ -23,6 +36,20 @@ export default function Create() {
           />
         </label>
 
+    <label> 
+        <span>Ingredients:</span>
+        <div className="ingredients">
+            <input onChange={(e)=>setNewIngredient(e.target.value)} value={newIngredient} type="text" ref={ingredientInput}/>
+            <button onClick={handleAdd} className="btn" >Add</button>
+        </div>
+    </label>
+    <p>
+       Current Ingredients: {ingredients.map((ingredient)=>(
+        <em key={ingredient}> 
+            {ingredient}, 
+        </em>
+       ))}
+    </p>
         <label>
           <span>Recipe Method:</span>
           <textarea 
