@@ -20,7 +20,7 @@ export default function Create() {
         if(data){
           navigate('/')  
         }
-    }, [data])
+    }, [data, navigate])
 
     const handleAdd = (e) =>{
         e.preventDefault()
