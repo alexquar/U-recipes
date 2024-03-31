@@ -6,11 +6,13 @@ import Recipe from './recipe/Recipe';
 import Create from './create/Create';
 import Search from './search/Search';
 import Navbar from './components/Navbar';
+import ThemeSelector from './components/ThemeSelector';
 function App() {
   return (
     <div className="App">
     <BrowserRouter>
    <Navbar />
+   <ThemeSelector />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/recipe" element={<Recipe />} />
