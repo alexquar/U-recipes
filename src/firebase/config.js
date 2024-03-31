@@ -1,5 +1,5 @@
-import 'firebase/compat/app'
-import 'firebase/compat/firestore';
+import firebase from 'firebase/app'
+import 'firebase/firestore';
 
 
 const firebaseConfig = {
